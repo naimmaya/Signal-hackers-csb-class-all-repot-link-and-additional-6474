@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Signal Hackers CSB - Enterprise Toolkit Pro</title>
+  <title>Signal Hackers CSB - Enterprise Toolkit Pro v4.0</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <style>
@@ -17,45 +17,20 @@
       overflow-x: hidden;
     }
 
-    /* Matrix Canvas Background */
     #matrixCanvas {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: -2;
-      opacity: 0.18;
+      top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none; z-index: -2; opacity: 0.18;
     }
 
     .bg-lighting-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: -1;
-      filter: blur(90px);
-      opacity: 0.45;
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none; z-index: -1; filter: blur(90px); opacity: 0.45;
     }
-    .light-orb-green {
-      position: absolute;
-      top: 10%; left: 15%; width: 320px; height: 320px; background: #00ff41; border-radius: 50%; animation: floatOrb1 8s ease-in-out infinite alternate;
-    }
-    .light-orb-blue {
-      position: absolute;
-      top: 40%; right: 10%; width: 380px; height: 380px; background: #00e5ff; border-radius: 50%; animation: floatOrb2 10s ease-in-out infinite alternate;
-    }
-    .light-orb-purple {
-      position: absolute;
-      bottom: 10%; left: 25%; width: 350px; height: 350px; background: #9333ea; border-radius: 50%; animation: floatOrb3 12s ease-in-out infinite alternate;
-    }
-    .light-orb-red {
-      position: absolute;
-      top: 60%; left: 60%; width: 300px; height: 300px; background: #ef4444; border-radius: 50%; animation: floatOrb1 9s ease-in-out infinite alternate-reverse;
-    }
+    .light-orb-green { position: absolute; top: 10%; left: 15%; width: 320px; height: 320px; background: #00ff41; border-radius: 50%; animation: floatOrb1 8s ease-in-out infinite alternate; }
+    .light-orb-blue { position: absolute; top: 40%; right: 10%; width: 380px; height: 380px; background: #00e5ff; border-radius: 50%; animation: floatOrb2 10s ease-in-out infinite alternate; }
+    .light-orb-purple { position: absolute; bottom: 10%; left: 25%; width: 350px; height: 350px; background: #9333ea; border-radius: 50%; animation: floatOrb3 12s ease-in-out infinite alternate; }
+    .light-orb-red { position: absolute; top: 60%; left: 60%; width: 300px; height: 300px; background: #ef4444; border-radius: 50%; animation: floatOrb1 9s ease-in-out infinite alternate-reverse; }
 
     @keyframes floatOrb1 { 0% { transform: translateY(0px) translateX(0px) scale(1); } 100% { transform: translateY(50px) translateX(30px) scale(1.15); } }
     @keyframes floatOrb2 { 0% { transform: translateY(0px) translateX(0px) scale(1); } 100% { transform: translateY(-60px) translateX(-40px) scale(1.2); } }
@@ -86,10 +61,8 @@
 </head>
 <body class="min-h-screen pb-28">
 
-  <!-- Matrix Rain Canvas -->
   <canvas id="matrixCanvas"></canvas>
 
-  <!-- Background Lighting Orbs -->
   <div class="bg-lighting-container">
     <div class="light-orb-green"></div>
     <div class="light-orb-blue"></div>
@@ -97,7 +70,7 @@
     <div class="light-orb-red"></div>
   </div>
 
-  <!-- Auth Overlay -->
+  <!-- Auth Modal -->
   <div id="authModal" class="fixed inset-0 bg-[#04060b]/90 z-50 flex items-center justify-center p-4 backdrop-blur-xl">
     <div class="glass-card w-full max-w-md p-8 rounded-2xl border border-emerald-500/40 shadow-2xl">
       <div class="text-center mb-6">
@@ -172,7 +145,7 @@
         </div>
         <div>
           <h1 class="text-lg font-black text-emerald-400 tracking-wider flex items-center gap-2">
-            SIGNAL HACKERS CSB <span class="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded border border-emerald-500/30 font-mono">PRO v3.0</span>
+            SIGNAL HACKERS CSB <span class="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded border border-emerald-500/30 font-mono">PRO v4.0</span>
           </h1>
           <p class="text-[11px] text-slate-400 tracking-wide font-mono">Advanced Cyber Security & Report Intelligence</p>
         </div>
@@ -194,19 +167,34 @@
   <!-- Main Container -->
   <main class="max-w-6xl mx-auto px-4 mt-6">
     
-    <!-- Target Link Auto-Injector Box -->
-    <div class="glass-card p-4.5 rounded-2xl border border-emerald-500/40 mb-6 shadow-2xl flex flex-col md:flex-row items-center gap-4">
-      <div class="w-10 h-10 rounded-xl bg-emerald-500/15 border border-emerald-500/40 flex items-center justify-center text-emerald-400 shrink-0">
-        <i class="fa-solid fa-crosshairs text-lg"></i>
+    <!-- Smart Target & Victim Injector Box -->
+    <div class="glass-card p-4.5 rounded-2xl border border-emerald-500/40 mb-6 shadow-2xl space-y-3">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+        <div class="flex items-center gap-2.5 text-emerald-400 font-mono text-xs font-bold uppercase tracking-wider">
+          <i class="fa-solid fa-crosshairs"></i> Smart Report Variable Injector
+        </div>
+        <button onclick="clearTarget()" class="text-[11px] bg-slate-800 hover:bg-slate-700 text-slate-300 px-3 py-1 rounded-lg border border-slate-700 font-mono transition">Clear All</button>
       </div>
-      <div class="flex-grow w-full">
-        <label class="text-xs text-emerald-400 font-mono font-bold block mb-1">TARGET LINK / USERNAME (Auto-Updates in Additional Text)</label>
-        <input type="text" id="globalTargetInput" placeholder="Ekhane Target Link ba Username din..." 
-               class="w-full bg-slate-900 border border-emerald-500/30 rounded-xl px-4 py-2.5 text-sm text-cyan-300 focus:outline-none focus:border-emerald-500 font-mono">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+        <div>
+          <label class="text-[11px] text-slate-400 font-mono block mb-1">TARGET ID / PROFILE / LINK ([TARGET])</label>
+          <input type="text" id="globalTargetInput" placeholder="https://facebook.com/target.profile" 
+                 class="w-full bg-slate-900 border border-emerald-500/30 rounded-xl px-3.5 py-2.5 text-sm text-cyan-300 focus:outline-none focus:border-emerald-500 font-mono">
+        </div>
+        <div>
+          <label class="text-[11px] text-slate-400 font-mono block mb-1">VICTIM / ORIGINAL OWNER LINK ([VICTIM])</label>
+          <input type="text" id="globalVictimInput" placeholder="https://facebook.com/original.profile" 
+                 class="w-full bg-slate-900 border border-emerald-500/30 rounded-xl px-3.5 py-2.5 text-sm text-emerald-300 focus:outline-none focus:border-emerald-500 font-mono">
+        </div>
       </div>
-      <button onclick="clearTarget()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 px-4 py-2.5 rounded-xl text-xs font-mono border border-slate-700 whitespace-nowrap transition">
-        Clear Target
-      </button>
+    </div>
+
+    <!-- Quick Platform Filter Tabs -->
+    <div class="flex items-center gap-2 overflow-x-auto pb-3 mb-4 scrollbar-none">
+      <button onclick="filterPlatform('all')" id="tab-all" class="px-4 py-2 rounded-xl text-xs font-mono font-bold bg-emerald-500 text-slate-950 shadow-lg transition whitespace-nowrap">🌐 All Modules</button>
+      <button onclick="filterPlatform('fb')" id="tab-fb" class="px-4 py-2 rounded-xl text-xs font-mono font-bold bg-slate-900/90 text-slate-300 border border-slate-800 hover:border-emerald-500/50 transition whitespace-nowrap">📘 Facebook Reports</button>
+      <button onclick="filterPlatform('tiktok')" id="tab-tiktok" class="px-4 py-2 rounded-xl text-xs font-mono font-bold bg-slate-900/90 text-slate-300 border border-slate-800 hover:border-emerald-500/50 transition whitespace-nowrap">🎵 TikTok Reports</button>
+      <button onclick="filterPlatform('copy')" id="tab-copy" class="px-4 py-2 rounded-xl text-xs font-mono font-bold bg-slate-900/90 text-slate-300 border border-slate-800 hover:border-emerald-500/50 transition whitespace-nowrap">⚖️ Copyright Section</button>
     </div>
 
     <!-- Quick Metrics Dashboard -->
@@ -252,7 +240,7 @@
       </div>
     </div>
 
-    <!-- Pinned / Favorite Reports Container -->
+    <!-- Pinned Reports Container -->
     <div id="pinnedContainer" class="mb-6 hidden">
       <div class="glass-card rounded-2xl overflow-hidden border border-amber-500/40 shadow-xl">
         <div class="folder-header p-4.5 flex justify-between items-center border-b border-amber-500/20 bg-amber-500/10">
@@ -339,7 +327,7 @@
         </div>
         <div>
           <label class="text-xs text-slate-400 block mb-1 font-mono">ADDITIONAL TEXT / DESCRIPTION</label>
-          <textarea id="newAdditional" rows="3" placeholder="Use [TARGET] for target link..." required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-slate-200"></textarea>
+          <textarea id="newAdditional" rows="3" placeholder="Use [TARGET] and [VICTIM]..." required class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-slate-200"></textarea>
         </div>
         <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-3 rounded-xl transition text-sm font-mono tracking-wide shadow-lg shadow-emerald-500/20">
           PUBLISH NEW REPORT
@@ -355,13 +343,10 @@
   </div>
 
   <script>
-    // Matrix Rain Animation Script
+    // Matrix Rain Animation
     const canvas = document.getElementById('matrixCanvas');
     const ctx = canvas.getContext('2d');
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
+    function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
     const alphabet = '01ABCDEFXYZ$#@&-_<>';
@@ -383,14 +368,14 @@
     }
     setInterval(drawMatrix, 30);
 
-    // Audio Cyber Beep using Web Audio API
+    // Cyber Beep Sound
     function playBeep() {
       try {
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         const osc = audioCtx.createOscillator();
         const gain = audioCtx.createGain();
         osc.type = 'sine';
-        osc.frequency.setValueAtTime(880, audioCtx.currentTime); // High pitch cyberpunk beep
+        osc.frequency.setValueAtTime(880, audioCtx.currentTime);
         gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
         gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.15);
         osc.connect(gain);
@@ -461,7 +446,8 @@
 
     function clearTarget() {
       document.getElementById("globalTargetInput").value = "";
-      showToast("Target Cleared!");
+      document.getElementById("globalVictimInput").value = "";
+      showToast("Targets Cleared!");
       renderModules(document.getElementById("searchInput").value.trim());
     }
 
@@ -480,55 +466,64 @@
 
     function closeAdminModal() { document.getElementById("adminModal").classList.add("hidden"); }
 
+    let currentPlatformFilter = 'all';
+    function filterPlatform(type) {
+      currentPlatformFilter = type;
+      ['all', 'fb', 'tiktok', 'copy'].forEach(t => {
+        const btn = document.getElementById(`tab-${t}`);
+        if(t === type) {
+          btn.className = "px-4 py-2 rounded-xl text-xs font-mono font-bold bg-emerald-500 text-slate-950 shadow-lg transition whitespace-nowrap";
+        } else {
+          btn.className = "px-4 py-2 rounded-xl text-xs font-mono font-bold bg-slate-900/90 text-slate-300 border border-slate-800 hover:border-emerald-500/50 transition whitespace-nowrap";
+        }
+      });
+      renderModules(document.getElementById("searchInput").value.trim());
+    }
+
     const defaultReportData = [
       {
         id: "m04",
-        title: "🔰 Module 04 — Basic Reporting",
+        platform: "fb",
+        title: "🔰 Module 04 — Basic Reporting & Safety Violations",
         classes: [
-          { classNum: "Class 14", name: "18+ ID Report", formLink: "https://www.facebook.com/help/contact/274459462613911", additional: "Hello Facebook Team,\nThis user profile [TARGET] is continuously sharing explicit 18+ adult content and inappropriate materials which violates Facebook's Community Standards on Nudity and Sexual Exploitation. Please review and take strict action.\nThank you." },
-          { classNum: "Class 15", name: "18+ Page Report", formLink: "https://www.facebook.com/help/contact/164405897002583", additional: "Dear Facebook Support Team,\nThis page [TARGET] is publicly distributing adult explicit 18+ videos and photos, harming the safe environment of the platform. Kindly remove this page immediately for violating Community Guidelines." },
-          { classNum: "Class 16", name: "18+ Group Report", formLink: "https://www.facebook.com/help/contact/211467438964344", additional: "Hello Team,\nThis Facebook group [TARGET] is actively used as a hub for sharing unauthorized explicit 18+ adult content and offensive media. Please inspect the group activities and take down the group permanently." },
-          { classNum: "Class 17", name: "Clone Account Report", formLink: "https://www.facebook.com/help/contact/295309487309948", additional: "Dear Facebook Security Team,\nThis profile [TARGET] is impersonating an authentic individual by illegally copying photos, bio, and personal information to trick people. This is a fake clone account. Kindly terminate this account ASAP." },
-          { classNum: "Class 18", name: "Under-13 Child Report", formLink: "https://www.facebook.com/help/contact/208949572459582", additional: "Hello Meta Support,\nThis account [TARGET] belongs to a child who is clearly under the age of 13. According to Meta Safety Policies, underage individuals are not permitted to operate an account. Please delete this profile." },
-          { classNum: "Class 19", name: "Sex Offender Report", formLink: "https://www.facebook.com/help/contact/207005222725325", additional: "Hello Meta Safety Team,\nI am reporting this profile [TARGET] as a convicted sex offender operating on Meta platforms. This poses a direct safety risk to users. Please review the attached proof and disable this profile permanently." }
+          { classNum: "Class 14", name: "18+ ID Strict Takedown Report", formLink: "https://www.facebook.com/help/contact/274459462613911", additional: "Dear Meta Safety Operations,\nThis targeted account [TARGET] is actively distributing explicit adult 18+ media, nudity, and sexual exploitation content in violation of Meta Community Standards. This poses extreme harm to minor users. Immediate profile termination is requested." },
+          { classNum: "Class 15", name: "18+ Page Takedown Report", formLink: "https://www.facebook.com/help/contact/164405897002583", additional: "To Meta Support Team,\nThe public page [TARGET] is uploading explicit adult videos and prohibited sexual content. Please review and execute immediate page takedown under safety guidelines." },
+          { classNum: "Class 16", name: "18+ Group Permanent Takedown", formLink: "https://www.facebook.com/help/contact/211467438964344", additional: "Hello Meta Team,\nThis Facebook group [TARGET] is operating as a cluster for sharing unauthorized adult explicit materials. Kindly disable and delete this group permanently." },
+          { classNum: "Class 17", name: "Clone / Impersonation Account Takedown", formLink: "https://www.facebook.com/help/contact/295309487309948", additional: "Dear Facebook Security,\nThe profile [TARGET] is illegally cloning and impersonating the authentic identity [VICTIM]. Please verify and terminate this fake account immediately to protect privacy." },
+          { classNum: "Class 18", name: "Under-13 Child Safety Report", formLink: "https://www.facebook.com/help/contact/208949572459582", additional: "Hello Meta Safety Team,\nAccount [TARGET] belongs to an underage child under 13 years, violating COPPA and Meta underage policies. Please remove this account instantly." },
+          { classNum: "Class 19", name: "Sex Offender & Threat Report", formLink: "https://www.facebook.com/help/contact/207005222725325", additional: "Urgent Meta Safety Alert:\nProfile [TARGET] is identified as a dangerous individual / sex offender threatening public security. Please disable this account with high priority." }
         ]
       },
       {
         id: "m05",
-        title: "🔰 Module 05 — Advanced Facebook Reports",
+        platform: "fb",
+        title: "🔰 Module 05 — Advanced Legal & Imposter Takedowns",
         classes: [
-          { classNum: "Class 20", name: "Imposter Report", formLink: "https://www.facebook.com/help/contact/169486816475808", additional: "Hello Support Team,\nAn unauthorized individual on profile [TARGET] is posing as me/my organization, using my real identity and profile pictures to deceive others. Please verify my identity documents and remove the imposter account." },
-          { classNum: "Class 21", name: "Defamation Report", formLink: "https://www.facebook.com/help/contact/430253293783305", additional: "Dear Meta Legal Team,\nThis target URL [TARGET] contains false, defamatory, and malicious accusations targeted towards damaging personal reputation and social standing. Kindly review this legal violation and remove the content." },
-          { classNum: "Class 22", name: "Privacy Violation Report", formLink: "https://www.facebook.com/help/contact/144059062408922", additional: "Hello Meta Privacy Team,\nMy private personal information has been published on [TARGET] without my explicit consent. Please remove this content to preserve my safety and privacy." },
-          { classNum: "Class 23", name: "Memorialization Request", formLink: "https://www.facebook.com/help/contact/228813257197480", additional: "Hello Meta Support,\nWe regret to inform you that the account owner of [TARGET] has passed away. Please memorialize this profile so friends and family can leave memories in peace. Necessary verification documents are provided." },
-          { classNum: "Class 24", name: "Legacy Contact Setup", formLink: "https://www.facebook.com/help/1070092263000930", additional: "Meta Guide for [TARGET]:\nNavigate to Settings & Privacy > Settings > Personal Details > Account Ownership and Control > Memorialization > Choose your Legacy Contact." },
-          { classNum: "Class 25", name: "Legal Removal Request", formLink: "https://www.facebook.com/help/contact/144059062408922", additional: "To Meta Legal Department:\nThe content at [TARGET] violates regional cyber laws and rights. We request immediate legal takedown under local telecommunication and privacy regulations." },
-          { classNum: "Class 26", name: "Indian Grievance Officer (Facebook)", formLink: "https://www.facebook.com/help/contact/278770247037226", additional: "To the Grievance Officer (India),\nI am submitting a formal grievance complaint regarding [TARGET] violating IT Rules and Community Guidelines. Requesting prompt resolution within statutory timelines." },
-          { classNum: "Class 27", name: "Indian Grievance Officer (Instagram)", formLink: "https://help.instagram.com/contact/278770247037226", additional: "To the Instagram Grievance Officer,\nSubmitting a formal complaint under Information Technology Rules against [TARGET] for immediate content escalation and removal." },
-          { classNum: "Class 28", name: "Instagram Report Fake & Form Report", formLink: "https://help.instagram.com/contact/636276399721841", additional: "Dear Instagram Safety Team,\nThis account [TARGET] is operating as a fake profile distributing spam, misleading links, and deceptive identity. Please suspend this account immediately." }
+          { classNum: "Class 20", name: "Official Imposter & Identity Form", formLink: "https://www.facebook.com/help/contact/169486816475808", additional: "To Meta Verification Team,\nI am reporting profile [TARGET] for illegally posing as [VICTIM] without authorization. Please process my identity verification and remove the imposter." },
+          { classNum: "Class 21", name: "Defamation & Malicious Accusation Form", formLink: "https://www.facebook.com/help/contact/430253293783305", additional: "Dear Meta Legal Department,\nThe URL [TARGET] contains defamatory, malicious, and false accusations aimed at destroying personal reputation. Remove this content immediately." },
+          { classNum: "Class 22", name: "Privacy Violation Takedown Form", formLink: "https://www.facebook.com/help/contact/144059062408922", additional: "To Meta Privacy Team,\nMy private confidential data and media have been shared on [TARGET] without consent. Immediate privacy takedown is requested." },
+          { classNum: "Class 23", name: "Indian Grievance Officer Escalation", formLink: "https://www.facebook.com/help/contact/278770247037226", additional: "To Grievance Officer (India),\nFormal complaint under IT Rules regarding [TARGET] violating community guidelines and statutory laws. Prompt action required." },
+          { classNum: "Class 24", name: "Instagram Fake & Imposter Form", formLink: "https://help.instagram.com/contact/636276399721841", additional: "Dear Instagram Support,\nAccount [TARGET] is operating a fake profile to scam users and distribute malicious materials. Please suspend this profile." }
         ]
       },
       {
         id: "m06",
-        title: "🔰 Module 06 — Copyright Section",
+        platform: "copy",
+        title: "🔰 Module 06 — DMCA & Intellectual Property Takedown",
         classes: [
-          { classNum: "Class 29", name: "Facebook → Facebook Copyright", formLink: "https://www.facebook.com/help/contact/1758255661104383", additional: "To Meta Copyright Agent,\nI am the exclusive copyright holder of the original content re-uploaded at [TARGET] without my permission. Please take down the infringing content immediately under DMCA regulations." },
-          { classNum: "Class 30", name: "Facebook → TikTok Copyright", formLink: "https://www.tiktok.com/legal/report/Copyright", additional: "Dear TikTok IP Team,\nMy original video published on Facebook has been stolen and uploaded at [TARGET] without authorization. Attached original post link and ownership proof for DMCA takedown." },
-          { classNum: "Class 31", name: "Instagram → Facebook Copyright", formLink: "https://www.facebook.com/help/contact/1758255661104383", additional: "Dear Meta Intellectual Property Team,\nMy copyrighted media posted on Instagram was stolen and re-published at [TARGET] without permission. Kindly take down the copied post immediately." },
-          { classNum: "Class 32", name: "Blogger → Facebook Copyright", formLink: "https://www.facebook.com/help/contact/1758255661104383", additional: "Hello Copyright Department,\nArticles and original media published on my official Blogger website have been copied without permission onto [TARGET]. Requesting swift removal of infringing material." },
-          { classNum: "Class 33", name: "Third-Party Copyright Claim", formLink: "https://www.facebook.com/help/contact/1758255661104383", additional: "As an authorized legal representative of the copyright owner, I hereby issue a formal infringement notice requesting the removal of unauthorized third-party content at [TARGET]." },
-          { classNum: "Class 34", name: "Multiple Copyright Claims", formLink: "https://www.facebook.com/help/contact/1758255661104383", additional: "Hello Meta IP Team,\nThis page/account [TARGET] repeatedly infringes upon multiple copyrighted works. We request a full account termination under the Repeat Infringer Policy." }
+          { classNum: "Class 25", name: "Meta Copyright Infringement Form", formLink: "https://www.facebook.com/help/contact/1758255661104383", additional: "DMCA Notice to Meta Copyright Agent:\nI am the sole legal copyright holder of original media stolen and re-uploaded at [TARGET]. Original work reference: [VICTIM]. Please execute immediate DMCA takedown." },
+          { classNum: "Class 26", name: "TikTok IP & Copyright Violation Form", formLink: "https://www.tiktok.com/legal/report/Copyright", additional: "Dear TikTok IP Team,\nMy original intellectual property has been plagiarized and posted at [TARGET] without authorization. Original link: [VICTIM]. Kindly take down the video." },
+          { classNum: "Class 27", name: "Multiple Copyright Infringer Takedown", formLink: "https://www.facebook.com/help/contact/1758255661104383", additional: "To Meta Intellectual Property Dept,\nPage/Account [TARGET] repeatedly infringes copyrighted works. Requesting complete account termination under Repeat Infringer Policy." }
         ]
       },
       {
         id: "m07",
-        title: "🔰 Module 07 — TikTok Section",
+        platform: "tiktok",
+        title: "🔰 Module 07 — TikTok Takedown & Security Section",
         classes: [
-          { classNum: "Class 35", name: "10+ TikTok Account toiri", formLink: "https://www.tiktok.com/signup", additional: "Guide/Tips:\nUse Temp Mail or Alias Email services + Multiple Chrome Profiles/Incognito windows to easily register multiple TikTok accounts safely." },
-          { classNum: "Class 36", name: "TikTok Fake Report", formLink: "https://www.tiktok.com/legal/report/feedback", additional: "Dear TikTok Support,\nThis user profile [TARGET] is impersonating a well-known person/brand and posting deceptive fake media. Please suspend this fraudulent profile." },
-          { classNum: "Class 37", name: "TikTok Underage Report", formLink: "https://www.tiktok.com/legal/report/feedback", additional: "Hello TikTok Safety Team,\nThis user [TARGET] is clearly under the minimum required age of 13. Please remove this account to comply with COPPA and TikTok child protection policies." },
-          { classNum: "Class 38", name: "TikTok Privacy Violation Report", formLink: "https://www.tiktok.com/legal/report/privacy", additional: "Hello TikTok Legal,\nMy private media and confidential personal information were uploaded at [TARGET] without my consent. Kindly process this privacy takedown request immediately." },
-          { classNum: "Class 39", name: "TikTok → Facebook Copyright Report", formLink: "https://www.facebook.com/help/contact/1758255661104383", additional: "Dear Meta IP Team,\nMy original video published on TikTok has been re-uploaded to [TARGET] without license or permission. Please remove this infringing post." }
+          { classNum: "Class 28", name: "TikTok Fake & Impersonation Report", formLink: "https://www.tiktok.com/legal/report/feedback", additional: "Dear TikTok Safety Team,\nProfile [TARGET] is impersonating [VICTIM] and deceiving platform users. Please ban this account immediately." },
+          { classNum: "Class 29", name: "TikTok Underage Account Report", formLink: "https://www.tiktok.com/legal/report/feedback", additional: "Hello TikTok Safety,\nUser account [TARGET] belongs to a child under 13, violating platform age regulations. Please delete this account." },
+          { classNum: "Class 30", name: "TikTok Privacy Violation Form", formLink: "https://www.tiktok.com/legal/report/privacy", additional: "To TikTok Legal Department,\nConfidential personal media has been published on [TARGET] without authorization. Execute privacy takedown." }
         ]
       }
     ];
@@ -550,7 +545,6 @@
         pinnedItems.splice(index, 1);
         showToast("Removed from Pinned!");
       } else {
-        // Find item object
         let found = null;
         reportData.forEach(m => {
           let match = m.classes.find(c => c.classNum === classNum && c.name === name);
@@ -565,7 +559,7 @@
       renderModules(document.getElementById("searchInput").value.trim());
     }
 
-    function renderPinnedSection(targetVal) {
+    function renderPinnedSection(targetVal, victimVal) {
       const container = document.getElementById("pinnedContainer");
       const listContent = document.getElementById("pinnedListContent");
       const countEl = document.getElementById("pinnedCount");
@@ -579,7 +573,7 @@
       listContent.innerHTML = "";
 
       pinnedItems.forEach(c => {
-        const processedText = c.additional.replace(/\[TARGET\]/g, targetVal);
+        let processedText = c.additional.replace(/\[TARGET\]/g, targetVal).replace(/\[VICTIM\]/g, victimVal);
         const escapedText = processedText.replace(/\\/g, '\\\\').replace(/`/g, '\\`').replace(/\n/g, '\\n');
         
         const card = document.createElement("div");
@@ -599,10 +593,15 @@
             </div>
           </div>
           <div class="relative mt-1">
-            <div class="text-xs font-mono text-slate-300 bg-slate-950/80 p-3.5 rounded-xl border border-slate-800/80 whitespace-pre-wrap pr-20">${processedText}</div>
-            <button onclick="copyToClipboard('${escapedText}', 'Additional Text', '${c.classNum} - ${c.name}')" class="absolute top-2.5 right-2.5 text-xs bg-amber-500/15 hover:bg-amber-500/30 text-amber-300 px-3 py-1.5 rounded-lg border border-amber-500/30 font-mono">
-              <i class="fa-regular fa-copy"></i> Copy
-            </button>
+            <div class="text-xs font-mono text-slate-300 bg-slate-950/80 p-3.5 rounded-xl border border-slate-800/80 whitespace-pre-wrap pr-32">${processedText}</div>
+            <div class="absolute top-2.5 right-2.5 flex items-center gap-1.5">
+              <button onclick="downloadTxtFile('${escapedText}', '${c.classNum}')" title="Download .txt" class="text-xs bg-cyan-500/15 hover:bg-cyan-500/30 text-cyan-300 px-2.5 py-1.5 rounded-lg border border-cyan-500/30 font-mono">
+                <i class="fa-solid fa-download"></i>
+              </button>
+              <button onclick="copyToClipboard('${escapedText}', 'Additional Text', '${c.classNum} - ${c.name}')" class="text-xs bg-amber-500/15 hover:bg-amber-500/30 text-amber-300 px-3 py-1.5 rounded-lg border border-amber-500/30 font-mono">
+                <i class="fa-regular fa-copy"></i> Copy
+              </button>
+            </div>
           </div>
         `;
         listContent.appendChild(card);
@@ -615,9 +614,12 @@
       updateClassCount();
 
       const targetVal = document.getElementById("globalTargetInput").value.trim() || "[TARGET_LINK]";
-      renderPinnedSection(targetVal);
+      const victimVal = document.getElementById("globalVictimInput").value.trim() || "[VICTIM_LINK]";
+      renderPinnedSection(targetVal, victimVal);
 
       reportData.forEach((mod) => {
+        if(currentPlatformFilter !== 'all' && mod.platform !== currentPlatformFilter) return;
+
         const filteredClasses = mod.classes.filter(c => 
           c.name.toLowerCase().includes(filter.toLowerCase()) || 
           c.classNum.toLowerCase().includes(filter.toLowerCase())
@@ -641,7 +643,7 @@
 
           <div id="content-${mod.id}" class="${isSearching ? 'block' : 'hidden'} p-4.5 space-y-4 bg-slate-950/50">
             ${filteredClasses.map((c) => {
-              const processedText = c.additional.replace(/\[TARGET\]/g, targetVal);
+              let processedText = c.additional.replace(/\[TARGET\]/g, targetVal).replace(/\[VICTIM\]/g, victimVal);
               const escapedText = processedText.replace(/\\/g, '\\\\').replace(/`/g, '\\`').replace(/\n/g, '\\n');
               const isPinned = pinnedItems.some(p => p.classNum === c.classNum && p.name === c.name);
               return `
@@ -670,10 +672,15 @@
                 </div>
 
                 <div class="relative mt-1">
-                  <div class="text-xs font-mono text-slate-300 bg-slate-950/80 p-3.5 rounded-xl border border-slate-800/80 whitespace-pre-wrap pr-20 leading-relaxed">${processedText}</div>
-                  <button onclick="copyToClipboard('${escapedText}', 'Additional Text', '${c.classNum} - ${c.name}')" class="absolute top-2.5 right-2.5 text-xs bg-emerald-500/15 hover:bg-emerald-500/30 text-emerald-400 px-3 py-1.5 rounded-lg border border-emerald-500/30 transition flex items-center gap-1.5 font-mono">
-                    <i class="fa-regular fa-copy"></i> Copy
-                  </button>
+                  <div class="text-xs font-mono text-slate-300 bg-slate-950/80 p-3.5 rounded-xl border border-slate-800/80 whitespace-pre-wrap pr-32 leading-relaxed">${processedText}</div>
+                  <div class="absolute top-2.5 right-2.5 flex items-center gap-1.5">
+                    <button onclick="downloadTxtFile('${escapedText}', '${c.classNum}')" title="Download .txt" class="text-xs bg-cyan-500/15 hover:bg-cyan-500/30 text-cyan-300 px-2.5 py-1.5 rounded-lg border border-cyan-500/30 font-mono">
+                      <i class="fa-solid fa-download"></i>
+                    </button>
+                    <button onclick="copyToClipboard('${escapedText}', 'Additional Text', '${c.classNum} - ${c.name}')" class="text-xs bg-emerald-500/15 hover:bg-emerald-500/30 text-emerald-400 px-3 py-1.5 rounded-lg border border-emerald-500/30 transition font-mono">
+                      <i class="fa-regular fa-copy"></i> Copy
+                    </button>
+                  </div>
                 </div>
               </div>
             `;}).join('')}
@@ -706,6 +713,21 @@
     document.getElementById("globalTargetInput").addEventListener("input", () => {
       renderModules(document.getElementById("searchInput").value.trim());
     });
+    document.getElementById("globalVictimInput").addEventListener("input", () => {
+      renderModules(document.getElementById("searchInput").value.trim());
+    });
+
+    function downloadTxtFile(text, filename) {
+      playBeep();
+      const element = document.createElement('a');
+      const file = new Blob([text], {type: 'text/plain'});
+      element.href = URL.createObjectURL(file);
+      element.download = `Signal_Report_${filename}.txt`;
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
+      showToast("Report .txt Downloaded!");
+    }
 
     function handleAddReport(e) {
       e.preventDefault();
