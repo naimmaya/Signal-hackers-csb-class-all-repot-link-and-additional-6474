@@ -35,7 +35,6 @@
     .helpline-pulse {
       animation: pulse-glow 2s infinite;
     }
-    /* Custom Scrollbar */
     ::-webkit-scrollbar {
       width: 6px;
     }
@@ -54,7 +53,6 @@
   <div id="authModal" class="fixed inset-0 bg-[#060913] z-50 flex items-center justify-center p-4">
     <div class="glass-card w-full max-w-md p-8 rounded-2xl border border-emerald-500/40 shadow-2xl">
       <div class="text-center mb-6">
-        <!-- Professional Login Logo -->
         <div class="w-24 h-24 mx-auto rounded-2xl border-2 border-emerald-500/60 overflow-hidden matrix-glow mb-4 bg-slate-900 flex items-center justify-center p-1">
           <img src="1000257146.png" alt="Signal Hackers Logo" class="w-full h-full object-cover rounded-xl" onerror="this.src='https://via.placeholder.com/96/090d16/00ff41?text=CSB'">
         </div>
@@ -85,11 +83,11 @@
         <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold py-3 rounded-xl transition text-sm shadow-lg shadow-emerald-500/30 font-mono tracking-wide">
           SECURE LOGIN
         </button>
-        <p id="loginError" class="text-xs text-red-400 text-center hidden">ভুল তথ্য! সঠিক Gmail বা Password দিন অথবা Sign Up করুন।</p>
+        <p id="loginError" class="text-xs text-red-400 text-center hidden">Vul tottho! Sothik Gmail ba Password din ba Sign Up korun.</p>
         
         <div class="text-center mt-4">
           <button type="button" onclick="switchAuthMode('signup')" class="text-xs text-emerald-400 hover:underline">
-            নতুন অ্যাকাউন্ট? **Sign Up** করুন ➔
+            Notun account? **Sign Up** korun ➔
           </button>
         </div>
       </form>
@@ -101,7 +99,7 @@
           <div class="relative">
             <input type="text" id="signupEmail" placeholder="e.g. user@gmail.com" required 
                    class="w-full bg-slate-900/90 border border-slate-700 rounded-xl px-4 py-3 pl-11 text-sm text-slate-200 focus:outline-none focus:border-cyan-500 transition">
-            <i class="fa-solid id-card absolute left-3.5 top-3.5 text-cyan-500 text-sm"></i>
+            <i class="fa-solid fa-address-card absolute left-3.5 top-3.5 text-cyan-500 text-sm"></i>
           </div>
         </div>
 
@@ -117,12 +115,12 @@
         <button type="submit" class="w-full bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold py-3 rounded-xl transition text-sm shadow-lg shadow-cyan-500/30 font-mono tracking-wide">
           REGISTER ACCOUNT
         </button>
-        <p id="signupSuccess" class="text-xs text-emerald-400 text-center hidden">অ্যাকাউন্ট তৈরি সফল! এখন লগইন করুন।</p>
-        <p id="signupError" class="text-xs text-red-400 text-center hidden">এই Gmail বা Number দিয়ে ইতিমধ্যে অ্যাকাউন্ট আছে!</p>
+        <p id="signupSuccess" class="text-xs text-emerald-400 text-center hidden">Account toiri safol! Ekhon Login korun.</p>
+        <p id="signupError" class="text-xs text-red-400 text-center hidden">Ei Gmail ba Number diye already account ache!</p>
 
         <div class="text-center mt-4">
           <button type="button" onclick="switchAuthMode('login')" class="text-xs text-cyan-400 hover:underline">
-            ➔ ইতিমধ্যে অ্যাকাউন্ট আছে? **Login** করুন
+            ➔ Already account ache? **Login** korun
           </button>
         </div>
       </form>
@@ -134,7 +132,6 @@
   <header class="border-b border-emerald-500/20 bg-slate-950/90 sticky top-0 z-40 backdrop-blur-xl">
     <div class="max-w-6xl mx-auto px-4 py-3.5 flex flex-col md:flex-row justify-between items-center gap-4">
       <div class="flex items-center gap-3.5 cursor-pointer" ondblclick="openSecretAdmin()">
-        <!-- Pro Logo Box -->
         <div class="w-12 h-12 rounded-xl border-2 border-emerald-500/50 overflow-hidden matrix-glow flex items-center justify-center bg-slate-900 shadow-lg">
           <img src="1000257146.png" alt="Logo" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/48/090d16/00ff41?text=CSB'">
         </div>
@@ -146,10 +143,10 @@
         </div>
       </div>
       
-      <!-- Search, Active User & Logout -->
+      <!-- Search & Logout -->
       <div class="flex items-center gap-3 w-full md:w-auto">
         <div class="relative w-full md:w-64">
-          <input type="text" id="searchInput" placeholder="ক্লাস বা রিপোর্ট খুঁজুন..." 
+          <input type="text" id="searchInput" placeholder="Klas ba report khujun..." 
                  class="w-full bg-slate-900/90 border border-emerald-500/30 rounded-xl px-4 py-2.5 pl-10 text-sm text-emerald-300 focus:outline-none focus:border-emerald-500 transition shadow-inner">
           <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-emerald-500/70 text-sm"></i>
         </div>
@@ -384,50 +381,50 @@
         id: "m04",
         title: "🔰 Module 04 — Basic Reporting",
         classes: [
-          { classNum: "Class 14", name: "18+ ID Report", formLink: "https://www.facebook.com/help/contact/274459462613911", additional: "Hello Facebook Team,\nThis user is continuously sharing explicit 18+ adult content..." },
-          { classNum: "Class 15", name: "18+ Page Report", formLink: "https://www.facebook.com/help/contact/164405897002583", additional: "Dear Facebook Support Team,\nThis page is publicly distributing adult explicit 18+ videos..." },
-          { classNum: "Class 16", name: "18+ Group Report", formLink: "https://www.facebook.com/help/contact/211467438964344", additional: "Hello Team,\nThis Facebook group is actively used as a hub for sharing unauthorized explicit 18+..." },
-          { classNum: "Class 17", name: "Clone Account Report", formLink: "https://www.facebook.com/help/contact/295309487309948", additional: "Dear Facebook Security Team,\nThis profile is impersonating an authentic individual..." },
-          { classNum: "Class 18", name: "Under-13 Child Report", formLink: "https://www.facebook.com/help/contact/208949572459582", additional: "Hello Meta Support,\nThis account belongs to a child who is clearly under the age of 13..." },
-          { classNum: "Class 19", name: "Sex Offender Report", formLink: "https://www.facebook.com/help/contact/207005222725325", additional: "Hello Meta Safety Team,\nI am reporting a convicted sex offender operating on Meta..." }
+          { classNum: "Class 14", name: "18+ ID Report", formLink: "https://www.facebook.com/help/contact/274459462613911", additional: "Hello Facebook Team,\nThis user is continuously sharing explicit 18+ adult content and inappropriate materials which violates Facebook's Community Standards on Nudity and Sexual Exploitation. Please review and take strict action.\nThank you." },
+          { classNum: "Class 15", name: "18+ Page Report", formLink: "https://www.facebook.com/help/contact/164405897002583", additional: "Dear Facebook Support Team,\nThis page is publicly distributing adult explicit 18+ videos and photos, harming the safe environment of the platform. Kindly remove this page immediately for violating Community Guidelines." },
+          { classNum: "Class 16", name: "18+ Group Report", formLink: "https://www.facebook.com/help/contact/211467438964344", additional: "Hello Team,\nThis Facebook group is actively used as a hub for sharing unauthorized explicit 18+ adult content and offensive media. Please inspect the group activities and take down the group permanently." },
+          { classNum: "Class 17", name: "Clone Account Report", formLink: "https://www.facebook.com/help/contact/295309487309948", additional: "Dear Facebook Security Team,\nThis profile is impersonating an authentic individual by illegally copying photos, bio, and personal information to trick people. This is a fake clone account. Kindly terminate this account ASAP." },
+          { classNum: "Class 18", name: "Under-13 Child Report", formLink: "https://www.facebook.com/help/contact/208949572459582", additional: "Hello Meta Support,\nThis account belongs to a child who is clearly under the age of 13. According to Meta Safety Policies, underage individuals are not permitted to operate an account. Please delete this profile." },
+          { classNum: "Class 19", name: "Sex Offender Report", formLink: "https://www.facebook.com/help/contact/207005222725325", additional: "Hello Meta Safety Team,\nI am reporting a convicted sex offender operating on Meta platforms. This poses a direct safety risk to users. Please review the attached proof and disable this profile permanently." }
         ]
       },
       {
         id: "m05",
         title: "🔰 Module 05 — Advanced Facebook Reports",
         classes: [
-          { classNum: "Class 20", name: "Imposter Report", formLink: "https://www.facebook.com/help/contact/169486816475808", additional: "Hello Support Team,\nAn unauthorized individual is posing as me/my organization..." },
-          { classNum: "Class 21", name: "Defamation Report", formLink: "https://www.facebook.com/help/contact/430253293783305", additional: "Dear Meta Legal Team,\nThis target URL contains false, defamatory, and malicious accusations..." },
-          { classNum: "Class 22", name: "Privacy Violation Report", formLink: "https://www.facebook.com/help/contact/144059062408922", additional: "Hello Meta Privacy Team,\nMy private personal information has been published..." },
-          { classNum: "Class 23", name: "Memorialization Request", formLink: "https://www.facebook.com/help/contact/228813257197480", additional: "Hello Meta Support,\nWe regret to inform you that the account owner has passed away..." },
-          { classNum: "Class 24", name: "Legacy Contact Setup", formLink: "https://www.facebook.com/help/1070092263000930", additional: "Meta Guide:\nNavigate to Settings & Privacy > Settings > Personal Details..." },
-          { classNum: "Class 25", name: "Legal Removal Request", formLink: "https://www.facebook.com/help/contact/144059062408922", additional: "To Meta Legal Department:\nThis content violates regional cyber laws and rights..." },
-          { classNum: "Class 26", name: "Indian Grievance Officer (Facebook)", formLink: "https://www.facebook.com/help/contact/278770247037226", additional: "To the Grievance Officer (India),\nI am submitting a formal grievance complaint..." },
-          { classNum: "Class 27", name: "Indian Grievance Officer (Instagram)", formLink: "https://help.instagram.com/contact/278770247037226", additional: "To the Instagram Grievance Officer,\nSubmitting a formal complaint under IT Rules..." },
-          { classNum: "Class 28", name: "Instagram Report Fake & Form Report", formLink: "https://help.instagram.com/contact/636276399721841", additional: "Dear Instagram Safety Team,\nThis account is operating as a fake profile..." }
+          { classNum: "Class 20", name: "Imposter Report", formLink: "https://www.facebook.com/help/contact/169486816475808", additional: "Hello Support Team,\nAn unauthorized individual is posing as me/my organization, using my real identity and profile pictures to deceive others. Please verify my identity documents and remove the imposter account." },
+          { classNum: "Class 21", name: "Defamation Report", formLink: "https://www.facebook.com/help/contact/430253293783305", additional: "Dear Meta Legal Team,\nThis target URL contains false, defamatory, and malicious accusations targeted towards damaging personal reputation and social standing. Kindly review this legal violation and remove the content." },
+          { classNum: "Class 22", name: "Privacy Violation Report", formLink: "https://www.facebook.com/help/contact/144059062408922", additional: "Hello Meta Privacy Team,\nMy private personal information (phone number/address/private photos) has been published on this platform without my explicit consent. Please remove this content to preserve my safety and privacy." },
+          { classNum: "Class 23", name: "Memorialization Request", formLink: "https://www.facebook.com/help/contact/228813257197480", additional: "Hello Meta Support,\nWe regret to inform you that the account owner has passed away. Please memorialize this profile so friends and family can leave memories in peace. Necessary verification documents are provided." },
+          { classNum: "Class 24", name: "Legacy Contact Setup", formLink: "https://www.facebook.com/help/1070092263000930", additional: "Meta Guide:\nNavigate to Settings & Privacy > Settings > Personal Details > Account Ownership and Control > Memorialization > Choose your Legacy Contact." },
+          { classNum: "Class 25", name: "Legal Removal Request", formLink: "https://www.facebook.com/help/contact/144059062408922", additional: "To Meta Legal Department:\nThis content violates regional cyber laws and rights. We request immediate legal takedown under local telecommunication and privacy regulations." },
+          { classNum: "Class 26", name: "Indian Grievance Officer (Facebook)", formLink: "https://www.facebook.com/help/contact/278770247037226", additional: "To the Grievance Officer (India),\nI am submitting a formal grievance complaint regarding content violating IT Rules and Community Guidelines. Requesting prompt resolution within statutory timelines." },
+          { classNum: "Class 27", name: "Indian Grievance Officer (Instagram)", formLink: "https://help.instagram.com/contact/278770247037226", additional: "To the Instagram Grievance Officer,\nSubmitting a formal complaint under Information Technology (Intermediary Guidelines) Rules for immediate content escalation and removal." },
+          { classNum: "Class 28", name: "Instagram Report Fake & Form Report", formLink: "https://help.instagram.com/contact/636276399721841", additional: "Dear Instagram Safety Team,\nThis account is operating as a fake profile distributing spam, misleading links, and deceptive identity. Please suspend this account immediately." }
         ]
       },
       {
         id: "m06",
         title: "🔰 Module 06 — Copyright Section",
         classes: [
-          { classNum: "Class 29", name: "Facebook → Facebook Copyright", formLink: "https://www.facebook.com/help/contact/1758255661104383", additional: "To Meta Copyright Agent,\nI am the exclusive copyright holder..." },
-          { classNum: "Class 30", name: "Facebook → TikTok Copyright", formLink: "https://www.tiktok.com/legal/report/Copyright", additional: "Dear TikTok IP Team,\nMy original video published on Facebook has been stolen..." },
-          { classNum: "Class 31", name: "Instagram → Facebook Copyright", formLink: "https://www.facebook.com/help/contact/1758255661104383", additional: "Dear Meta Intellectual Property Team,\nMy copyrighted media posted on Instagram..." },
-          { classNum: "Class 32", name: "Blogger → Facebook Copyright", formLink: "https://www.facebook.com/help/contact/1758255661104383", additional: "Hello Copyright Department,\nArticles and original media published on my official Blogger..." },
-          { classNum: "Class 33", name: "Third-Party Copyright Claim", formLink: "https://www.facebook.com/help/contact/1758255661104383", additional: "As an authorized legal representative of the copyright owner..." },
-          { classNum: "Class 34", name: "Multiple Copyright Claims", formLink: "https://www.facebook.com/help/contact/1758255661104383", additional: "Hello Meta IP Team,\nThis page/account repeatedly infringes upon multiple copyrighted works..." }
+          { classNum: "Class 29", name: "Facebook → Facebook Copyright", formLink: "https://www.facebook.com/help/contact/1758255661104383", additional: "To Meta Copyright Agent,\nI am the exclusive copyright holder of the original content re-uploaded on Facebook without my permission. Please take down the infringing content immediately under DMCA regulations." },
+          { classNum: "Class 30", name: "Facebook → TikTok Copyright", formLink: "https://www.tiktok.com/legal/report/Copyright", additional: "Dear TikTok IP Team,\nMy original video published on Facebook has been stolen and uploaded on TikTok without authorization. Attached original post link and ownership proof for DMCA takedown." },
+          { classNum: "Class 31", name: "Instagram → Facebook Copyright", formLink: "https://www.facebook.com/help/contact/1758255661104383", additional: "Dear Meta Intellectual Property Team,\nMy copyrighted media posted on Instagram was stolen and re-published on Facebook without permission. Kindly take down the copied post immediately." },
+          { classNum: "Class 32", name: "Blogger → Facebook Copyright", formLink: "https://www.facebook.com/help/contact/1758255661104383", additional: "Hello Copyright Department,\nArticles and original media published on my official Blogger website have been copied without permission onto Facebook. Requesting swift removal of infringing material." },
+          { classNum: "Class 33", name: "Third-Party Copyright Claim", formLink: "https://www.facebook.com/help/contact/1758255661104383", additional: "As an authorized legal representative of the copyright owner, I hereby issue a formal infringement notice requesting the removal of unauthorized third-party content." },
+          { classNum: "Class 34", name: "Multiple Copyright Claims", formLink: "https://www.facebook.com/help/contact/1758255661104383", additional: "Hello Meta IP Team,\nThis page/account repeatedly infringes upon multiple copyrighted works. We request a full account termination under the Repeat Infringer Policy." }
         ]
       },
       {
         id: "m07",
         title: "🔰 Module 07 — TikTok Section",
         classes: [
-          { classNum: "Class 35", name: "10+ TikTok Account toiri", formLink: "https://www.tiktok.com/signup", additional: "Guide/Tips:\nUse Temp Mail or Alias Email services + Multiple Chrome Profiles..." },
-          { classNum: "Class 36", name: "TikTok Fake Report", formLink: "https://www.tiktok.com/legal/report/feedback", additional: "Dear TikTok Support,\nThis user profile is impersonating a well-known person..." },
-          { classNum: "Class 37", name: "TikTok Underage Report", formLink: "https://www.tiktok.com/legal/report/feedback", additional: "Hello TikTok Safety Team,\nThis user is clearly under the minimum required age..." },
-          { classNum: "Class 38", name: "TikTok Privacy Violation Report", formLink: "https://www.tiktok.com/legal/report/privacy", additional: "Hello TikTok Legal,\nMy private media and confidential personal information..." },
-          { classNum: "Class 39", name: "TikTok → Facebook Copyright Report", formLink: "https://www.facebook.com/help/contact/1758255661104383", additional: "Dear Meta IP Team,\nMy original video published on TikTok has been re-uploaded..." }
+          { classNum: "Class 35", name: "10+ TikTok Account toiri", formLink: "https://www.tiktok.com/signup", additional: "Guide/Tips:\nUse Temp Mail or Alias Email services + Multiple Chrome Profiles/Incognito windows to easily register multiple TikTok accounts safely." },
+          { classNum: "Class 36", name: "TikTok Fake Report", formLink: "https://www.tiktok.com/legal/report/feedback", additional: "Dear TikTok Support,\nThis user profile is impersonating a well-known person/brand and posting deceptive fake media. Please suspend this fraudulent profile." },
+          { classNum: "Class 37", name: "TikTok Underage Report", formLink: "https://www.tiktok.com/legal/report/feedback", additional: "Hello TikTok Safety Team,\nThis user is clearly under the minimum required age of 13. Please remove this account to comply with COPPA and TikTok child protection policies." },
+          { classNum: "Class 38", name: "TikTok Privacy Violation Report", formLink: "https://www.tiktok.com/legal/report/privacy", additional: "Hello TikTok Legal,\nMy private media and confidential personal information were uploaded without my consent. Kindly process this privacy takedown request immediately." },
+          { classNum: "Class 39", name: "TikTok → Facebook Copyright Report", formLink: "https://www.facebook.com/help/contact/1758255661104383", additional: "Dear Meta IP Team,\nMy original video published on TikTok has been re-uploaded to Facebook without license or permission. Please remove this infringing post." }
         ]
       }
     ];
@@ -502,7 +499,7 @@
                   <div class="text-xs font-mono text-slate-300 bg-slate-950/80 p-3.5 rounded-xl border border-slate-800/80 whitespace-pre-wrap pr-20 leading-relaxed">
                     ${c.additional}
                   </div>
-                  <button onclick="copyToClipboard(\`${c.additional.replace(/`/g, '\\`')}\`, 'Additional Text')" 
+                  <button onclick="copyToClipboard(\`${c.additional.replace(/\\/g, '\\\\').replace(/`/g, '\\`').replace(/\n/g, '\\n')}\`, 'Additional Text')" 
                           class="absolute top-2.5 right-2.5 text-xs bg-emerald-500/15 hover:bg-emerald-500/30 text-emerald-400 px-3 py-1.5 rounded-lg border border-emerald-500/30 transition flex items-center gap-1.5 font-mono">
                     <i class="fa-regular fa-copy"></i> Copy
                   </button>
