@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Signal Hackers CSB - Enterprise Toolkit Pro v4.0</title>
+  <title>Signal Hackers CSB - Enterprise Toolkit Pro v5.0</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <style>
@@ -145,7 +145,7 @@
         </div>
         <div>
           <h1 class="text-lg font-black text-emerald-400 tracking-wider flex items-center gap-2">
-            SIGNAL HACKERS CSB <span class="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded border border-emerald-500/30 font-mono">PRO v4.0</span>
+            SIGNAL HACKERS CSB <span class="text-[10px] bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded border border-emerald-500/30 font-mono">PRO v5.0</span>
           </h1>
           <p class="text-[11px] text-slate-400 tracking-wide font-mono">Advanced Cyber Security & Report Intelligence</p>
         </div>
@@ -193,6 +193,7 @@
     <div class="flex items-center gap-2 overflow-x-auto pb-3 mb-4 scrollbar-none">
       <button onclick="filterPlatform('all')" id="tab-all" class="px-4 py-2 rounded-xl text-xs font-mono font-bold bg-emerald-500 text-slate-950 shadow-lg transition whitespace-nowrap">🌐 All Modules</button>
       <button onclick="filterPlatform('fb')" id="tab-fb" class="px-4 py-2 rounded-xl text-xs font-mono font-bold bg-slate-900/90 text-slate-300 border border-slate-800 hover:border-emerald-500/50 transition whitespace-nowrap">📘 Facebook Reports</button>
+      <button onclick="filterPlatform('newfb')" id="tab-newfb" class="px-4 py-2 rounded-xl text-xs font-mono font-bold bg-slate-900/90 text-amber-300 border border-amber-500/40 hover:border-amber-500 transition whitespace-nowrap">🔥 New Meta Updates</button>
       <button onclick="filterPlatform('tiktok')" id="tab-tiktok" class="px-4 py-2 rounded-xl text-xs font-mono font-bold bg-slate-900/90 text-slate-300 border border-slate-800 hover:border-emerald-500/50 transition whitespace-nowrap">🎵 TikTok Reports</button>
       <button onclick="filterPlatform('copy')" id="tab-copy" class="px-4 py-2 rounded-xl text-xs font-mono font-bold bg-slate-900/90 text-slate-300 border border-slate-800 hover:border-emerald-500/50 transition whitespace-nowrap">⚖️ Copyright Section</button>
     </div>
@@ -202,7 +203,7 @@
       <div class="glass-card p-4 rounded-2xl border-l-4 border-emerald-500 shadow-xl flex items-center justify-between">
         <div>
           <p class="text-[11px] text-slate-400 font-mono uppercase tracking-wider">Total Modules</p>
-          <p class="text-2xl font-black text-emerald-400 mt-1">04 <span class="text-xs font-normal text-slate-400">Folders</span></p>
+          <p class="text-2xl font-black text-emerald-400 mt-1">05 <span class="text-xs font-normal text-slate-400">Folders</span></p>
         </div>
         <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
           <i class="fa-solid fa-folder-tree text-lg"></i>
@@ -212,7 +213,7 @@
       <div class="glass-card p-4 rounded-2xl border-l-4 border-cyan-500 shadow-xl flex items-center justify-between">
         <div>
           <p class="text-[11px] text-slate-400 font-mono uppercase tracking-wider">Total Classes</p>
-          <p id="totalClassCount" class="text-2xl font-black text-cyan-400 mt-1">26 <span class="text-xs font-normal text-slate-400">Items</span></p>
+          <p id="totalClassCount" class="text-2xl font-black text-cyan-400 mt-1">30 <span class="text-xs font-normal text-slate-400">Items</span></p>
         </div>
         <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
           <i class="fa-solid fa-book-open text-lg"></i>
@@ -307,6 +308,7 @@
           <select id="targetModule" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-slate-200 focus:outline-none focus:border-emerald-500">
             <option value="m04">Module 04 — Basic Reporting</option>
             <option value="m05">Module 05 — Advanced Facebook Reports</option>
+            <option value="m08">New Professional Updates (Meta 2026)</option>
             <option value="m06">Module 06 — Copyright Section</option>
             <option value="m07">Module 07 — TikTok Section</option>
           </select>
@@ -469,7 +471,7 @@
     let currentPlatformFilter = 'all';
     function filterPlatform(type) {
       currentPlatformFilter = type;
-      ['all', 'fb', 'tiktok', 'copy'].forEach(t => {
+      ['all', 'fb', 'newfb', 'tiktok', 'copy'].forEach(t => {
         const btn = document.getElementById(`tab-${t}`);
         if(t === type) {
           btn.className = "px-4 py-2 rounded-xl text-xs font-mono font-bold bg-emerald-500 text-slate-950 shadow-lg transition whitespace-nowrap";
@@ -504,6 +506,17 @@
           { classNum: "Class 22", name: "Privacy Violation Takedown Form", formLink: "https://www.facebook.com/help/contact/144059062408922", additional: "To Meta Privacy Team,\nMy private confidential data and media have been shared on [TARGET] without consent. Immediate privacy takedown is requested." },
           { classNum: "Class 23", name: "Indian Grievance Officer Escalation", formLink: "https://www.facebook.com/help/contact/278770247037226", additional: "To Grievance Officer (India),\nFormal complaint under IT Rules regarding [TARGET] violating community guidelines and statutory laws. Prompt action required." },
           { classNum: "Class 24", name: "Instagram Fake & Imposter Form", formLink: "https://help.instagram.com/contact/636276399721841", additional: "Dear Instagram Support,\nAccount [TARGET] is operating a fake profile to scam users and distribute malicious materials. Please suspend this profile." }
+        ]
+      },
+      {
+        id: "m08",
+        platform: "newfb",
+        title: "🔥 New Professional Updates for Facebook Profile & Page Takedowns",
+        classes: [
+          { classNum: "Class 40", name: "Meta Dangerous Organizations & Extremism Takedown", formLink: "https://www.facebook.com/help/contact/306774619472305", additional: "Urgent Meta AI Safety Report:\nProfile/Page [TARGET] is actively promoting hate speech, violence, and dangerous organizational agendas. In accordance with Meta 2026 AI Threat Protocols, this account must be suspended immediately." },
+          { classNum: "Class 41", name: "Self-Harm & Emergency Security Freeze Form", formLink: "https://www.facebook.com/help/contact/305593649477238", additional: "Emergency Security Notice:\nThe account [TARGET] is displaying dangerous behaviors and publishing threat contents. Please freeze and audit this profile immediately to prevent safety hazards." },
+          { classNum: "Class 42", name: "Multi-Language High-Risk AI Appeal", formLink: "https://www.facebook.com/help/contact/274459462613911", additional: "Meta Enforced Audit Notice:\n[EN] Target profile [TARGET] severely violates Meta Terms of Service.\n[AR] هذا الحساب [TARGET] ينتهك معايير المجتمع بشكل خطير.\n[BN] টার্গেট অ্যাকাউন্ট [TARGET] ফেসবুকের কমিউনিটি স্ট্যান্ডার্ড সম্পূর্ণ লঙ্ঘন করেছে। স্থায়ীভাবে ডিজেবল করা হোক।" },
+          { classNum: "Class 43", name: "Brand & Business Page Impersonation Takedown", formLink: "https://www.facebook.com/help/contact/169486816475808", additional: "To Meta Brand Protection Legal Team,\nThis page [TARGET] is illegally impersonating our official registered brand [VICTIM], misleading customers and committing fraud. Immediate manual review and takedown is required." }
         ]
       },
       {
@@ -778,7 +791,7 @@
     }
 
     function clearHistory() {
-      sessionHistory = [];
+      session_history = [];
       localStorage.removeItem("signalCopyHistory");
       renderHistoryList();
       showToast("History Cleared!");
