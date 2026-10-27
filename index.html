@@ -28,16 +28,24 @@
     .folder-header {
       background: linear-gradient(90deg, rgba(16, 185, 129, 0.1) 0%, rgba(15, 23, 42, 0.8) 100%);
     }
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 15px rgba(0, 255, 65, 0.4); }
+      50% { box-shadow: 0 0 25px rgba(0, 255, 65, 0.8); }
+    }
+    .helpline-pulse {
+      animation: pulse-glow 2s infinite;
+    }
   </style>
 </head>
-<body class="min-h-screen pb-12">
+<body class="min-h-screen pb-20">
 
   <!-- Auth Overlay (Sign Up & Login) -->
   <div id="authModal" class="fixed inset-0 bg-[#090d16] z-50 flex items-center justify-center p-4">
     <div class="glass-card w-full max-w-md p-8 rounded-2xl border border-emerald-500/40 shadow-2xl">
       <div class="text-center mb-6">
-        <div class="w-14 h-14 mx-auto rounded-xl bg-emerald-500/10 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-bold text-2xl matrix-glow mb-3">
-          <i class="fa-solid fa-shield-halved"></i>
+        <!-- App Logo in Login -->
+        <div class="w-20 h-20 mx-auto rounded-xl border-2 border-emerald-500/50 overflow-hidden matrix-glow mb-3 bg-slate-900 flex items-center justify-center">
+          <img src="1000257146.png" alt="Signal Hackers Logo" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/80/090d16/00ff41?text=CSB'">
         </div>
         <h2 class="text-xl font-bold text-emerald-400">SIGNAL HACKERS CSB</h2>
         <p id="authTitle" class="text-xs text-slate-400 mt-1">Apnar real Gmail ebong password diye Login ba Sign Up korun</p>
@@ -66,7 +74,7 @@
         <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold py-2.5 rounded-lg transition text-sm shadow-lg shadow-emerald-500/20">
           Login to Toolkit
         </button>
-        <p id="loginError" class="text-xs text-red-400 text-center hidden">Vul Gmail ba Password! Age Sign Up korun ba sothik info দিন।</p>
+        <p id="loginError" class="text-xs text-red-400 text-center hidden">Vul Gmail ba Password! Age Sign Up korun ba sothik info din.</p>
         
         <div class="text-center mt-3">
           <button type="button" onclick="switchAuthMode('signup')" class="text-xs text-emerald-400 hover:underline">
@@ -98,7 +106,7 @@
         <button type="submit" class="w-full bg-cyan-500 hover:bg-cyan-600 text-slate-950 font-bold py-2.5 rounded-lg transition text-sm shadow-lg shadow-cyan-500/20">
           Register & Sign Up
         </button>
-        <p id="signupSuccess" class="text-xs text-emerald-400 text-center hidden">Sign Up successful! Ekhon Login korun。</p>
+        <p id="signupSuccess" class="text-xs text-emerald-400 text-center hidden">Sign Up successful! Ekhon Login korun.</p>
         <p id="signupError" class="text-xs text-red-400 text-center hidden">Ei Gmail/Number diye already account ache!</p>
 
         <div class="text-center mt-3">
@@ -111,12 +119,13 @@
     </div>
   </div>
 
-  <!-- Header Section (No Admin Button Visible) -->
+  <!-- Header Section -->
   <header class="border-b border-emerald-500/20 bg-slate-950/80 sticky top-0 z-40 backdrop-blur-md">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
-      <div class="flex items-center gap-3" ondblclick="openSecretAdmin()">
-        <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-bold text-xl matrix-glow">
-          <i class="fa-solid fa-shield-halved"></i>
+    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-3 cursor-pointer" ondblclick="openSecretAdmin()">
+        <!-- App Logo in Header -->
+        <div class="w-11 h-11 rounded-xl border border-emerald-500/50 overflow-hidden matrix-glow flex items-center justify-center bg-slate-900">
+          <img src="1000257146.png" alt="Logo" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/44/090d16/00ff41?text=CSB'">
         </div>
         <div>
           <h1 class="text-xl font-bold text-emerald-400 tracking-wide">SIGNAL HACKERS CSB</h1>
@@ -165,6 +174,28 @@
       <!-- Dynamic rendering via JS -->
     </div>
   </main>
+
+  <!-- Floating Helpline / Contact Button -->
+  <div class="fixed bottom-6 left-6 z-40 flex flex-col gap-2">
+    <button onclick="toggleHelplineMenu()" class="bg-emerald-500 hover:bg-emerald-600 text-slate-950 px-4 py-3 rounded-full font-bold shadow-xl flex items-center gap-2 helpline-pulse transition-all">
+      <i class="fa-solid fa-headset text-lg"></i>
+      <span class="text-xs hidden sm:inline">Helpline</span>
+    </button>
+
+    <div id="helplineMenu" class="glass-card p-3 rounded-xl border border-emerald-500/40 shadow-2xl space-y-2 hidden w-48 transition-all">
+      <p class="text-[10px] text-slate-400 text-center font-bold uppercase tracking-wider border-b border-slate-800 pb-1">Direct Contact</p>
+      
+      <a href="https://wa.me/8801679164271" target="_blank" class="flex items-center gap-2 bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-300 p-2 rounded-lg border border-emerald-500/30 text-xs transition">
+        <i class="fa-brands fa-whatsapp text-emerald-400 text-sm"></i>
+        <span>WhatsApp</span>
+      </a>
+
+      <a href="https://t.me/signalhackers" target="_blank" class="flex items-center gap-2 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 p-2 rounded-lg border border-cyan-500/30 text-xs transition">
+        <i class="fa-brands fa-telegram text-cyan-400 text-sm"></i>
+        <span>@signalhackers</span>
+      </a>
+    </div>
+  </div>
 
   <!-- Hidden Admin Panel Modal -->
   <div id="adminModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4">
@@ -222,7 +253,6 @@
   </div>
 
   <script>
-    // Check if user already logged in
     window.addEventListener("DOMContentLoaded", () => {
       if(localStorage.getItem("signalLoggedIn") === "true") {
         document.getElementById("authModal").classList.add("hidden");
@@ -288,10 +318,14 @@
       location.reload();
     }
 
-    // Secret Admin Opener Shortcut (Ctrl + Shift + A or Double Click on Logo)
+    function toggleHelplineMenu() {
+      const menu = document.getElementById("helplineMenu");
+      menu.classList.toggle("hidden");
+    }
+
     function openSecretAdmin() {
       const passPrompt = prompt("Enter Secret Admin Password:");
-      if(passPrompt === "admin123") { // Apni password ekhane change kore nite paren
+      if(passPrompt === "admin123") {
         document.getElementById("adminModal").classList.remove("hidden");
       } else if(passPrompt !== null) {
         alert("Vul Password!");
@@ -309,7 +343,6 @@
       document.getElementById("adminModal").classList.add("hidden");
     }
 
-    // Default Database
     const defaultReportData = [
       {
         id: "m04",
