@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyber Sentinel - Advanced Report Toolkit</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Hind+Siliguri:wght@400;600;700&display=swap');
+    
+    body {
+      font-family: 'Hind Siliguri', 'Fira Code', sans-serif;
+      background-color: #090d16;
+      color: #e2e8f0;
+    }
+    .matrix-glow {
+      box-shadow: 0 0 15px rgba(0, 255, 65, 0.2);
+    }
+    .glass-card {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(0, 255, 65, 0.15);
+    }
+    .glass-card:hover {
+      border-color: rgba(0, 255, 65, 0.4);
+    }
+    .folder-header {
+      background: linear-gradient(90deg, rgba(16, 185, 129, 0.1) 0%, rgba(15, 23, 42, 0.8) 100%);
+    }
+  </style>
+</head>
+<body class="min-h-screen pb-12">
+
+  <!-- Header Section -->
+  <header class="border-b border-emerald-500/20 bg-slate-950/80 sticky top-0 z-50 backdrop-blur-md">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-bold text-xl matrix-glow">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <div>
+          <h1 class="text-xl font-bold text-emerald-400 tracking-wide">REPORT TOOLKIT HUB</h1>
+          <p class="text-xs text-slate-400">Cyber Sentinel & Signal Hackers Toolkit</p>
+        </div>
+      </div>
+      
+      <!-- Search Bar -->
+      <div class="relative w-full md:w-80">
+        <input type="text" id="searchInput" placeholder="Klas ba report khujun (coda: 18+, Clone)..." 
+               class="w-full bg-slate-900/90 border border-emerald-500/30 rounded-lg px-4 py-2 pl-10 text-sm text-emerald-300 focus:outline-none focus:border-emerald-500 transition">
+        <i class="fa-solid fa-search absolute left-3 top-3 text-slate-500 text-sm"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-6xl mx-auto px-4 mt-6">
+    <!-- Quick Metrics -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+      <div class="glass-card p-4 rounded-xl border-l-4 border-emerald-500">
+        <p class="text-xs text-slate-400">Mot Module</p>
+        <p class="text-2xl font-bold text-emerald-400">04 Ti</p>
+      </div>
+      <div class="glass-card p-4 rounded-xl border-l-4 border-cyan-500">
+        <p class="text-xs text-slate-400">Mot Class</p>
+        <p class="text-2xl font-bold text-cyan-400">26 Ti</p>
+      </div>
+      <div class="glass-card p-4 rounded-xl border-l-4 border-indigo-500">
+        <p class="text-xs text-slate-400">Copy Button</p>
+        <p class="text-2xl font-bold text-indigo-400">One-Click</p>
+      </div>
+      <div class="glass-card p-4 rounded-xl border-l-4 border-purple-500">
+        <p class="text-xs text-slate-400">Status</p>
+        <p class="text-2xl font-bold text-purple-400">Active Ready</p>
+      </div>
+    </div>
+
+    <!-- Modules Container -->
+    <div id="modulesContainer" class="space-y-4">
+      <!-- Dynamic rendering via JS -->
+    </div>
+  </main>
+
+  <!-- Notification Toast -->
+  <div id="toast" class="fixed bottom-5 right-5 bg-emerald-500 text-slate-950 font-semibold px-4 py-2 rounded-lg shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 flex items-center gap-2 z-50">
+    <i class="fa-solid fa-circle-check"></i>
+    <span id="toastMsg">Copy kora hoyeche!</span>
+  </div>
+
+  <script>
+    const reportData = [
+      {
+        id: "m04",
+        title: "🔰 Module 04 — Basic Reporting",
+        classes: [
+          {
+            classNum: "Class 14",
+            name: "18+ ID Report",
+            formLink: "https://www.facebook.com/help/contact/274459462613911",
+            additional: "Hello Facebook Team,\nThis user is continuously sharing explicit 18+ adult content and inappropriate materials which violates Facebook's Community Standards on Nudity and Sexual Exploitation. Please review and take strict action.\nThank you."
+          },
+          {
+            classNum: "Class 15",
+            name: "18+ Page Report",
+            formLink: "https://www.facebook.com/help/contact/164405897002583",
+            additional: "Dear Facebook Support Team,\nThis page is publicly distributing adult explicit 18+ videos and photos, harming the safe environment of the platform. Kindly remove this page immediately for violating Community Guidelines."
+          },
+          {
+            classNum: "Class 16",
+            name: "18+ Group Report",
+            formLink: "https://www.facebook.com/help/contact/211467438964344",
+            additional: "Hello Team,\nThis Facebook group is actively used as a hub for sharing unauthorized explicit 18+ adult content and offensive media. Please inspect the group activities and take down the group permanently."
+          },
+          {
+            classNum: "Class 17",
+            name: "Clone Account Report",
+            formLink: "https://www.facebook.com/help/contact/295309487309948",
+            additional: "Dear Facebook Security Team,\nThis profile is impersonating an authentic individual by illegally copying photos, bio, and personal information to trick people. This is a fake clone account. Kindly terminate this account ASAP."
+          },
+          {
+            classNum: "Class 18",
+            name: "Under-13 Child Report",
+            formLink: "https://www.facebook.com/help/contact/208949572459582",
+            additional: "Hello Meta Support,\nThis account belongs to a child who is clearly under the age of 13. According to Meta Safety Policies, underage individuals are not permitted to operate an account. Please delete this profile."
+          },
+          {
+            classNum: "Class 19",
+            name: "Sex Offender Report",
+            formLink: "https://www.facebook.com/help/contact/207005222725325",
+            additional: "Hello Meta Safety Team,\nI am reporting a convicted sex offender operating on Meta platforms. This poses a direct safety risk to users. Please review the attached proof and disable this profile permanently."
+          }
+        ]
+      },
+      {
+        id: "m05",
+        title: "🔰 Module 05 — Advanced Facebook Reports",
+        classes: [
+          {
+            classNum: "Class 20",
+            name: "Imposter Report",
+            formLink: "https://www.facebook.com/help/contact/169486816475808",
+            additional: "Hello Support Team,\nAn unauthorized individual is posing as me/my organization, using my real identity and profile pictures to deceive others. Please verify my identity documents and remove the imposter account."
+          },
+          {
+            classNum: "Class 21",
+            name: "Defamation Report",
+            formLink: "https://www.facebook.com/help/contact/430253293783305",
+            additional: "Dear Meta Legal Team,\nThis target URL contains false, defamatory, and malicious accusations targeted towards damaging personal reputation and social standing. Kindly review this legal violation and remove the content."
+          },
+          {
+            classNum: "Class 22",
+            name: "Privacy Violation Report",
+            formLink: "https://www.facebook.com/help/contact/144059062408922",
+            additional: "Hello Meta Privacy Team,\nMy private personal information (phone number/address/private photos) has been published on this platform without my explicit consent. Please remove this content to preserve my safety and privacy."
+          },
+          {
+            classNum: "Class 23",
+            name: "Memorialization Request",
+            formLink: "https://www.facebook.com/help/contact/228813257197480",
+            additional: "Hello Meta Support,\nWe regret to inform you that the account owner has passed away. Please memorialize this profile so friends and family can leave memories in peace. Necessary verification documents are provided."
+          },
+          {
+            classNum: "Class 24",
+            name: "Legacy Contact Setup",
+            formLink: "https://www.facebook.com/help/1070092263000930",
+            additional: "Meta Guide:\nNavigate to Settings & Privacy > Settings > Personal Details > Account Ownership and Control > Memorialization > Choose your Legacy Contact."
+          },
+          {
+            classNum: "Class 25",
+            name: "Legal Removal Request",
+            formLink: "https://www.facebook.com/help/contact/144059062408922",
+            additional: "To Meta Legal Department:\nThis content violates regional cyber laws and rights. We request immediate legal takedown under local telecommunication and privacy regulations."
+          },
+          {
+            classNum: "Class 26",
+            name: "Indian Grievance Officer (Facebook)",
+            formLink: "https://www.facebook.com/help/contact/278770247037226",
+            additional: "To the Grievance Officer (India),\nI am submitting a formal grievance complaint regarding content violating IT Rules and Community Guidelines. Requesting prompt resolution within statutory timelines."
+          },
+          {
+            classNum: "Class 27",
+            name: "Indian Grievance Officer (Instagram)",
+            formLink: "https://help.instagram.com/contact/278770247037226",
+            additional: "To the Instagram Grievance Officer,\nSubmitting a formal complaint under Information Technology (Intermediary Guidelines) Rules for immediate content escalation and removal."
+          },
+          {
+            classNum: "Class 28",
+            name: "Instagram Report Fake & Form Report",
+            formLink: "https://help.instagram.com/contact/636276399721841",
+            additional: "Dear Instagram Safety Team,\nThis account is operating as a fake profile distributing spam, misleading links, and deceptive identity. Please suspend this account immediately."
+          }
+        ]
+      },
+      {
+        id: "m06",
+        title: "🔰 Module 06 — Copyright Section",
+        classes: [
+          {
+            classNum: "Class 29",
+            name: "Facebook → Facebook Copyright",
+            formLink: "https://www.facebook.com/help/contact/1758255661104383",
+            additional: "To Meta Copyright Agent,\nI am the exclusive copyright holder of the original content re-uploaded on Facebook without my permission. Please take down the infringing content immediately under DMCA regulations."
+          },
+          {
+            classNum: "Class 30",
+            name: "Facebook → TikTok Copyright",
+            formLink: "https://www.tiktok.com/legal/report/Copyright",
+            additional: "Dear TikTok IP Team,\nMy original video published on Facebook has been stolen and uploaded on TikTok without authorization. Attached original post link and ownership proof for DMCA takedown."
+          },
+          {
+            classNum: "Class 31",
+            name: "Instagram → Facebook Copyright",
+            formLink: "https://www.facebook.com/help/contact/1758255661104383",
+            additional: "Dear Meta Intellectual Property Team,\nMy copyrighted media posted on Instagram was stolen and re-published on Facebook without permission. Kindly take down the copied post immediately."
+          },
+          {
+            classNum: "Class 32",
+            name: "Blogger → Facebook Copyright",
+            formLink: "https://www.facebook.com/help/contact/1758255661104383",
+            additional: "Hello Copyright Department,\nArticles and original media published on my official Blogger website have been copied without permission onto Facebook. Requesting swift removal of infringing material."
+          },
+          {
+            classNum: "Class 33",
+            name: "Third-Party Copyright Claim",
+            formLink: "https://www.facebook.com/help/contact/1758255661104383",
+            additional: "As an authorized legal representative of the copyright owner, I hereby issue a formal infringement notice requesting the removal of unauthorized third-party content."
+          },
+          {
+            classNum: "Class 34",
+            name: "Multiple Copyright Claims",
+            formLink: "https://www.facebook.com/help/contact/1758255661104383",
+            additional: "Hello Meta IP Team,\nThis page/account repeatedly infringes upon multiple copyrighted works. We request a full account termination under the Repeat Infringer Policy."
+          }
+        ]
+      },
+      {
+        id: "m07",
+        title: "🔰 Module 07 — TikTok Section",
+        classes: [
+          {
+            classNum: "Class 35",
+            name: "10+ TikTok Account toiri",
+            formLink: "https://www.tiktok.com/signup",
+            additional: "Guide/Tips:\nUse Temp Mail or Alias Email services + Multiple Chrome Profiles/Incognito windows to easily register multiple TikTok accounts safely."
+          },
+          {
+            classNum: "Class 36",
+            name: "TikTok Fake Report",
+            formLink: "https://www.tiktok.com/legal/report/feedback",
+            additional: "Dear TikTok Support,\nThis user profile is impersonating a well-known person/brand and posting deceptive fake media. Please suspend this fraudulent profile."
+          },
+          {
+            classNum: "Class 37",
+            name: "TikTok Underage Report",
+            formLink: "https://www.tiktok.com/legal/report/feedback",
+            additional: "Hello TikTok Safety Team,\nThis user is clearly under the minimum required age of 13. Please remove this account to comply with COPPA and TikTok child protection policies."
+          },
+          {
+            classNum: "Class 38",
+            name: "TikTok Privacy Violation Report",
+            formLink: "https://www.tiktok.com/legal/report/privacy",
+            additional: "Hello TikTok Legal,\nMy private media and confidential personal information were uploaded without my consent. Kindly process this privacy takedown request immediately."
+          },
+          {
+            classNum: "Class 39",
+            name: "TikTok → Facebook Copyright Report",
+            formLink: "https://www.facebook.com/help/contact/1758255661104383",
+            additional: "Dear Meta IP Team,\nMy original video published on TikTok has been re-uploaded to Facebook without license or permission. Please remove this infringing post."
+          }
+        ]
+      }
+    ];
+
+    function renderModules(filter = "") {
+      const container = document.getElementById("modulesContainer");
+      container.innerHTML = "";
+
+      reportData.forEach((mod) => {
+        const filteredClasses = mod.classes.filter(c => 
+          c.name.toLowerCase().includes(filter.toLowerCase()) || 
+          c.classNum.toLowerCase().includes(filter.toLowerCase())
+        );
+
+        if (filter !== "" && filteredClasses.length === 0) return;
+
+        const folderEl = document.createElement("div");
+        folderEl.className = "glass-card rounded-xl overflow-hidden transition-all duration-300";
+
+        const isSearching = filter !== "";
+
+        folderEl.innerHTML = `
+          <!-- Folder Header -->
+          <div onclick="toggleFolder('${mod.id}')" 
+               class="folder-header p-4 flex justify-between items-center cursor-pointer select-none border-b border-emerald-500/10">
+            <div class="flex items-center gap-3">
+              <i class="fa-solid fa-folder-closed text-emerald-400 text-xl transition-transform duration-300" id="icon-${mod.id}"></i>
+              <h2 class="font-bold text-lg text-slate-100">${mod.title}</h2>
+              <span class="text-xs bg-emerald-500/20 text-emerald-300 px-2.5 py-0.5 rounded-full border border-emerald-500/30">
+                ${filteredClasses.length} Items
+              </span>
+            </div>
+            <i class="fa-solid fa-chevron-down text-slate-400 text-sm transition-transform duration-300" id="arrow-${mod.id}"></i>
+          </div>
+
+          <!-- Folder Body / Classes List -->
+          <div id="content-${mod.id}" class="${isSearching ? 'block' : 'hidden'} p-4 space-y-4 bg-slate-950/40">
+            ${filteredClasses.map(c => `
+              <div class="p-4 rounded-lg bg-slate-900/80 border border-slate-800 hover:border-emerald-500/30 transition flex flex-col gap-3">
+                <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+                  <div class="flex items-center gap-2">
+                    <span class="text-xs font-mono font-bold text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded border border-emerald-500/20">
+                      ${c.classNum}
+                    </span>
+                    <h3 class="font-bold text-slate-200">${c.name}</h3>
+                  </div>
+                  
+                  <!-- Action Buttons -->
+                  <div class="flex flex-wrap items-center gap-2">
+                    <button onclick="copyToClipboard('${c.formLink}', 'Form Link')" 
+                            class="text-xs bg-slate-800 hover:bg-slate-700 text-emerald-300 px-3 py-1.5 rounded-md border border-slate-700 flex items-center gap-1.5 transition">
+                      <i class="fa-solid fa-link"></i> Form Link Copy
+                    </button>
+                    <a href="${c.formLink}" target="_blank" 
+                       class="text-xs bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 px-3 py-1.5 rounded-md border border-emerald-500/40 flex items-center gap-1.5 transition">
+                      <i class="fa-solid fa-arrow-up-right-from-square"></i> Open Form
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Display Form Link Box explicitly -->
+                <div class="text-[11px] font-mono text-cyan-400 bg-slate-950/60 px-3 py-1.5 rounded border border-cyan-500/20 truncate">
+                  <span class="text-slate-400">Link:</span> ${c.formLink}
+                </div>
+
+                <!-- Additional Text Box -->
+                <div class="relative mt-1">
+                  <div class="text-xs font-mono text-slate-400 bg-slate-950/80 p-3 rounded-lg border border-slate-800/80 whitespace-pre-wrap pr-16">
+                    ${c.additional}
+                  </div>
+                  <button onclick="copyToClipboard(\`${c.additional.replace(/`/g, '\\`')}\`, 'Additional Text')" 
+                          class="absolute top-2 right-2 text-xs bg-emerald-500/10 hover:bg-emerald-500/30 text-emerald-400 px-2.5 py-1 rounded border border-emerald-500/30 transition flex items-center gap-1">
+                    <i class="fa-regular fa-copy"></i> Copy Text
+                  </button>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        `;
+
+        container.appendChild(folderEl);
+        if(isSearching) {
+          document.getElementById(`icon-${mod.id}`)?.classList.replace('fa-folder-closed', 'fa-folder-open');
+          document.getElementById(`arrow-${mod.id}`)?.classList.add('rotate-180');
+        }
+      });
+    }
+
+    function toggleFolder(id) {
+      const content = document.getElementById(`content-${id}`);
+      const icon = document.getElementById(`icon-${id}`);
+      const arrow = document.getElementById(`arrow-${id}`);
+
+      if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        icon.classList.replace('fa-folder-closed', 'fa-folder-open');
+        arrow.classList.add('rotate-180');
+      } else {
+        content.classList.add('hidden');
+        icon.classList.replace('fa-folder-open', 'fa-folder-closed');
+        arrow.classList.remove('rotate-180');
+      }
+    }
+
+    function copyToClipboard(text, label) {
+      navigator.clipboard.writeText(text).then(() => {
+        showToast(`${label} safolvabey copy kora hoyeche!`);
+      }).catch(err => {
+        showToast(`Copy korte somossa hoyeche!`);
+      });
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      const toastMsg = document.getElementById("toastMsg");
+      toastMsg.innerText = message;
+      toast.classList.remove("translate-y-20", "opacity-0");
+      setTimeout(() => {
+        toast.classList.add("translate-y-20", "opacity-0");
+      }, 2500);
+    }
+
+    document.getElementById("searchInput").addEventListener("input", (e) => {
+      renderModules(e.target.value.trim());
+    });
+
+    renderModules();
+  </script>
+</body>
+</html>
