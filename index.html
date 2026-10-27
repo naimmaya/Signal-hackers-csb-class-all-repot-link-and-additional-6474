@@ -32,8 +32,46 @@
 </head>
 <body class="min-h-screen pb-12">
 
+  <!-- Login Overlay / Page -->
+  <div id="authModal" class="fixed inset-0 bg-[#090d16] z-50 flex items-center justify-center p-4">
+    <div class="glass-card w-full max-w-md p-8 rounded-2xl border border-emerald-500/40 shadow-2xl">
+      <div class="text-center mb-6">
+        <div class="w-14 h-14 mx-auto rounded-xl bg-emerald-500/10 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-bold text-2xl matrix-glow mb-3">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <h2 class="text-xl font-bold text-emerald-400">SIGNAL HACKERS CSB</h2>
+        <p class="text-xs text-slate-400 mt-1">Access kortey Gmail/Number ebong Password din</p>
+      </div>
+
+      <form id="authForm" onsubmit="handleAuthSubmit(event)" class="space-y-4">
+        <div>
+          <label class="text-xs text-slate-400 block mb-1">Gmail ba Phone Number</label>
+          <div class="relative">
+            <input type="text" id="authIdentity" placeholder="e.g. admin@gmail.com ba 017xxxxxxxx" required 
+                   class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 pl-10 text-sm text-slate-200 focus:outline-none focus:border-emerald-500">
+            <i class="fa-solid fa-user absolute left-3.5 top-3.5 text-slate-500 text-sm"></i>
+          </div>
+        </div>
+
+        <div>
+          <label class="text-xs text-slate-400 block mb-1">Password</label>
+          <div class="relative">
+            <input type="password" id="authPassword" placeholder="Enter password..." required 
+                   class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 pl-10 text-sm text-slate-200 focus:outline-none focus:border-emerald-500">
+            <i class="fa-solid fa-lock absolute left-3.5 top-3.5 text-slate-500 text-sm"></i>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold py-2.5 rounded-lg transition text-sm shadow-lg shadow-emerald-500/20">
+          Login to Toolkit
+        </button>
+        <p id="authError" class="text-xs text-red-400 text-center hidden">Sothik Gmail/Number ba Password din!</p>
+      </form>
+    </div>
+  </div>
+
   <!-- Header Section -->
-  <header class="border-b border-emerald-500/20 bg-slate-950/80 sticky top-0 z-50 backdrop-blur-md">
+  <header class="border-b border-emerald-500/20 bg-slate-950/80 sticky top-0 z-40 backdrop-blur-md">
     <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
       <div class="flex items-center gap-3">
         <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-bold text-xl matrix-glow">
@@ -45,15 +83,18 @@
         </div>
       </div>
       
-      <!-- Search & Admin Button -->
+      <!-- Search, Admin & Logout -->
       <div class="flex items-center gap-3 w-full md:w-auto">
-        <div class="relative w-full md:w-64">
+        <div class="relative w-full md:w-56">
           <input type="text" id="searchInput" placeholder="Klas ba report khujun..." 
                  class="w-full bg-slate-900/90 border border-emerald-500/30 rounded-lg px-4 py-2 pl-10 text-sm text-emerald-300 focus:outline-none focus:border-emerald-500 transition">
           <i class="fa-solid fa-search absolute left-3 top-3 text-slate-500 text-sm"></i>
         </div>
-        <button onclick="openAdminModal()" class="bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 px-3.5 py-2 rounded-lg border border-emerald-500/40 text-sm font-semibold transition flex items-center gap-2 whitespace-nowrap">
-          <i class="fa-solid fa-lock"></i> Admin
+        <button onclick="openAdminModal()" class="bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 px-3 py-2 rounded-lg border border-emerald-500/40 text-sm font-semibold transition flex items-center gap-1.5 whitespace-nowrap">
+          <i class="fa-solid fa-gear"></i> Admin
+        </button>
+        <button onclick="logoutUser()" class="bg-red-500/20 hover:bg-red-500/30 text-red-300 px-3 py-2 rounded-lg border border-red-500/40 text-sm font-semibold transition flex items-center gap-1.5 whitespace-nowrap">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
         </button>
       </div>
     </div>
@@ -87,77 +128,52 @@
     </div>
   </main>
 
-  <!-- Admin Login / Panel Modal -->
+  <!-- Admin Panel Modal (For Adding Reports) -->
   <div id="adminModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4">
     <div class="glass-card w-full max-w-lg p-6 rounded-2xl border border-emerald-500/40 shadow-2xl relative">
       <button onclick="closeAdminModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg">
         <i class="fa-solid fa-xmark"></i>
       </button>
 
-      <!-- Step 1: Login Form -->
-      <div id="adminLoginView">
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-10 h-10 rounded-lg bg-red-500/10 border border-red-500/40 flex items-center justify-center text-red-400 font-bold">
-            <i class="fa-solid fa-lock"></i>
-          </div>
-          <div>
-            <h3 class="font-bold text-lg text-slate-100">Admin Authentication</h3>
-            <p class="text-xs text-slate-400">Enter secure admin password to continue</p>
-          </div>
-        </div>
-        <div class="space-y-3">
-          <input type="password" id="adminPasswordInput" placeholder="Enter Admin Password..." 
-                 class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-sm text-slate-200 focus:outline-none focus:border-emerald-500">
-          <button onclick="verifyAdmin()" class="w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold py-2.5 rounded-lg transition text-sm">
-            Login Securely
-          </button>
-          <p id="loginError" class="text-xs text-red-400 text-center hidden">Incorrect Password! Try again.</p>
+      <div class="flex justify-between items-center mb-4 border-b border-slate-800 pb-3">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-user-shield text-emerald-400"></i>
+          <h3 class="font-bold text-slate-100">Add New Report Class</h3>
         </div>
       </div>
 
-      <!-- Step 2: Admin Dashboard / Add Form -->
-      <div id="adminDashboardView" class="hidden">
-        <div class="flex justify-between items-center mb-4 border-b border-slate-800 pb-3">
-          <div class="flex items-center gap-2">
-            <i class="fa-solid fa-user-shield text-emerald-400"></i>
-            <h3 class="font-bold text-slate-100">Secure Admin Panel</h3>
-          </div>
-          <button onclick="logoutAdmin()" class="text-xs bg-red-500/20 text-red-400 px-3 py-1 rounded border border-red-500/30">Logout</button>
+      <form id="addReportForm" onsubmit="handleAddReport(event)" class="space-y-3">
+        <div>
+          <label class="text-xs text-slate-400 block mb-1">Select Module Folder</label>
+          <select id="targetModule" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-emerald-500">
+            <option value="m04">Module 04 — Basic Reporting</option>
+            <option value="m05">Module 05 — Advanced Facebook Reports</option>
+            <option value="m06">Module 06 — Copyright Section</option>
+            <option value="m07">Module 07 — TikTok Section</option>
+          </select>
         </div>
-
-        <form id="addReportForm" onsubmit="handleAddReport(event)" class="space-y-3">
+        <div class="grid grid-cols-2 gap-2">
           <div>
-            <label class="text-xs text-slate-400 block mb-1">Select Module Folder</label>
-            <select id="targetModule" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-emerald-500">
-              <option value="m04">Module 04 — Basic Reporting</option>
-              <option value="m05">Module 05 — Advanced Facebook Reports</option>
-              <option value="m06">Module 06 — Copyright Section</option>
-              <option value="m07">Module 07 — TikTok Section</option>
-            </select>
-          </div>
-          <div class="grid grid-cols-2 gap-2">
-            <div>
-              <label class="text-xs text-slate-400 block mb-1">Class Number</label>
-              <input type="text" id="newClassNum" placeholder="e.g. Class 40" required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-200">
-            </div>
-            <div>
-              <label class="text-xs text-slate-400 block mb-1">Report Name</label>
-              <input type="text" id="newClassName" placeholder="e.g. Custom Report" required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-200">
-            </div>
+            <label class="text-xs text-slate-400 block mb-1">Class Number</label>
+            <input type="text" id="newClassNum" placeholder="e.g. Class 40" required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-200">
           </div>
           <div>
-            <label class="text-xs text-slate-400 block mb-1">Report Form URL Link</label>
-            <input type="url" id="newFormLink" placeholder="https://www.facebook.com/help/contact/..." required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-200">
+            <label class="text-xs text-slate-400 block mb-1">Report Name</label>
+            <input type="text" id="newClassName" placeholder="e.g. Custom Report" required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-200">
           </div>
-          <div>
-            <label class="text-xs text-slate-400 block mb-1">Additional Text / Description</label>
-            <textarea id="newAdditional" rows="3" placeholder="Write additional report text..." required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-200"></textarea>
-          </div>
-          <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold py-2.5 rounded-lg transition text-sm">
-            Add New Report Class
-          </button>
-        </form>
-      </div>
+        </div>
+        <div>
+          <label class="text-xs text-slate-400 block mb-1">Report Form URL Link</label>
+          <input type="url" id="newFormLink" placeholder="https://www.facebook.com/help/contact/..." required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-200">
+        </div>
+        <div>
+          <label class="text-xs text-slate-400 block mb-1">Additional Text / Description</label>
+          <textarea id="newAdditional" rows="3" placeholder="Write additional report text..." required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-200"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold py-2.5 rounded-lg transition text-sm">
+          Save New Report
+        </button>
+      </form>
     </div>
   </div>
 
@@ -168,7 +184,39 @@
   </div>
 
   <script>
-    // Default Base Database
+    // Default Credentials (Apni ekhane nijer moto email ba number ebong password set korte paren)
+    const ALLOWED_USER = "admin@signal.com"; 
+    const ALLOWED_PASS = "admin123";
+
+    // Check if user already logged in
+    window.addEventListener("DOMContentLoaded", () => {
+      if(localStorage.getItem("signalLoggedIn") === "true") {
+        document.getElementById("authModal").classList.add("hidden");
+      }
+    });
+
+    function handleAuthSubmit(e) {
+      e.preventDefault();
+      const identity = document.getElementById("authIdentity").value.trim();
+      const pass = document.getElementById("authPassword").value.trim();
+
+      // Simple validation check (You can use any email/number or keep fixed ones)
+      if(identity.length > 3 && pass.length >= 4) {
+        localStorage.setItem("signalLoggedIn", "true");
+        localStorage.setItem("signalUser", identity);
+        document.getElementById("authModal").classList.add("hidden");
+        showToast("Login Successful!");
+      } else {
+        document.getElementById("authError").classList.remove("hidden");
+      }
+    }
+
+    function logoutUser() {
+      localStorage.removeItem("signalLoggedIn");
+      location.reload();
+    }
+
+    // Default Database
     const defaultReportData = [
       {
         id: "m04",
@@ -222,7 +270,6 @@
       }
     ];
 
-    // Load from LocalStorage if exists
     let reportData = JSON.parse(localStorage.getItem("signalHackersReports")) || defaultReportData;
 
     function updateClassCount() {
@@ -263,7 +310,7 @@
           </div>
 
           <div id="content-${mod.id}" class="${isSearching ? 'block' : 'hidden'} p-4 space-y-4 bg-slate-950/40">
-            ${filteredClasses.map((c, index) => `
+            ${filteredClasses.map((c) => `
               <div class="p-4 rounded-lg bg-slate-900/80 border border-slate-800 hover:border-emerald-500/30 transition flex flex-col gap-3">
                 <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
                   <div class="flex items-center gap-2">
@@ -285,8 +332,8 @@
                   </div>
                 </div>
 
-                <div class="text-[11px] font-mono text-cyan-400 bg-slate-950/60 px-3 py-1.5 rounded border border-cyan-500/20 truncate flex justify-between items-center">
-                  <div><span class="text-slate-400">Link:</span> ${c.formLink}</div>
+                <div class="text-[11px] font-mono text-cyan-400 bg-slate-950/60 px-3 py-1.5 rounded border border-cyan-500/20 truncate">
+                  <span class="text-slate-400">Link:</span> ${c.formLink}
                 </div>
 
                 <div class="relative mt-1">
@@ -327,46 +374,12 @@
       }
     }
 
-    // Admin Modal Logic
-    const ADMIN_PASS = "admin123"; // Apni apnar pasaword ekhane change kore nite paren
-
     function openAdminModal() {
       document.getElementById("adminModal").classList.remove("hidden");
-      if(localStorage.getItem("signalHackersAdminAuth") === "true") {
-        showAdminDashboard();
-      } else {
-        showAdminLogin();
-      }
     }
 
     function closeAdminModal() {
       document.getElementById("adminModal").classList.add("hidden");
-    }
-
-    function verifyAdmin() {
-      const pass = document.getElementById("adminPasswordInput").value;
-      if(pass === ADMIN_PASS) {
-        localStorage.setItem("signalHackersAdminAuth", "true");
-        showAdminDashboard();
-        document.getElementById("loginError").classList.add("hidden");
-      } else {
-        document.getElementById("loginError").classList.remove("hidden");
-      }
-    }
-
-    function showAdminLogin() {
-      document.getElementById("adminLoginView").classList.remove("hidden");
-      document.getElementById("adminDashboardView").classList.add("hidden");
-    }
-
-    function showAdminDashboard() {
-      document.getElementById("adminLoginView").classList.add("hidden");
-      document.getElementById("adminDashboardView").classList.remove("hidden");
-    }
-
-    function logoutAdmin() {
-      localStorage.removeItem("signalHackersAdminAuth");
-      showAdminLogin();
     }
 
     function handleAddReport(e) {
